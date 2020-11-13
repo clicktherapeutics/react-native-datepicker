@@ -33,7 +33,7 @@ class DatePicker extends Component {
       modalVisible: false,
       animatedHeight: new Animated.Value(0),
       allowPointerEvents: true,
-      isPicker: false,
+      isPicker: false
     };
 
     this.getDate = this.getDate.bind(this);
@@ -200,7 +200,7 @@ class DatePicker extends Component {
 
   onDatePicked(event, date) {
     if (date === undefined) {
-      this.setState({isPicker: false})
+      this.setState({isPicker: false});
     } else {
       this.setState({
         date: Moment(date),
@@ -212,7 +212,7 @@ class DatePicker extends Component {
 
   onTimePicked(event, time) {
     if (time === undefined) {
-      this.setState({isPicker: false})
+      this.setState({isPicker: false});
     } else {
       this.setState({
         date: Moment(time),
@@ -221,35 +221,6 @@ class DatePicker extends Component {
       this.datePicked();
     }
   }
-
-  /*
-  onDatetimePicked({action, year, month, day}) {
-    const {mode, androidMode, format = FORMATS[mode], is24Hour = !format.match(/h|a/)} = this.props;
-
-    if (action !== DatePickerAndroid.dismissedAction) {
-      let timeMoment = Moment(this.state.date);
-
-      TimePickerAndroid.open({
-        hour: timeMoment.hour(),
-        minute: timeMoment.minutes(),
-        is24Hour: is24Hour,
-        mode: androidMode
-      }).then(this.onDatetimeTimePicked.bind(this, year, month, day));
-    } else {
-      this.onPressCancel();
-    }
-  }
-
-  onDatetimeTimePicked(year, month, day, {action, hour, minute}) {
-    if (action !== DatePickerAndroid.dismissedAction) {
-      this.setState({
-        date: new Date(year, month, day, hour, minute)
-      });
-      this.datePicked();
-    } else {
-      this.onPressCancel();
-    }
-  }*/
 
   onPressDate() {
     if (this.props.disabled) {
@@ -408,24 +379,24 @@ class DatePicker extends Component {
   }
 
   renderPicker(mode){
-    const { minDate, maxDate } = this.props;
-    if (mode === 'time'){
+    const {minDate, maxDate} = this.props;
+    if (mode === 'time') {
       return (
         <DateTimePicker mode="time"
-                        value={this.state.date} 
+                        value={this.state.date}
                         onChange={this.onTimePicked}/>
-      )
+      );
     }
     else if (mode === 'date') {
-      return(
-        <DateTimePicker mode="date" 
-                        minimumDate={minDate && this.getDate(minDate)} 
-                        maximumDate={maxDate && this.getDate(maxDate)} 
-                        value={this.state.date} 
+      return (
+        <DateTimePicker mode="date"
+                        minimumDate={minDate && this.getDate(minDate)}
+                        maximumDate={maxDate && this.getDate(maxDate)}
+                        value={this.state.date}
                         onChange={this.onDatePicked}/>
-      )
+      );
     }
-    else{
+    else {
       return null;
     }
   }
@@ -437,14 +408,12 @@ DatePicker.defaultProps = {
   date: '',
   // component height: 216(DatePickerIOS) + 1(borderTop) + 42(marginTop), IOS only
   height: 259,
-
   // slide animation duration time, default to 300ms, IOS only
   duration: 300,
   confirmBtnText: '确定',
   cancelBtnText: '取消',
   iconSource: require('./date_icon.png'),
   customStyles: {},
-
   // whether or not show the icon
   showIcon: true,
   disabled: false,
