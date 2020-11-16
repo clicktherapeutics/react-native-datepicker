@@ -1,5 +1,5 @@
 {
-  "name": "react-native-datepicker",
+  "name": "@click-therapeutics-org/react-native-datepicker",
   "version": "1.7.2",
   "description": "React Native DatePicker component for both Android and iOS, useing DatePickerAndroid, TimePickerAndroid and DatePickerIOS",
   "main": "datepicker.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xgfe/react-native-datepicker.git"
+    "url": "git+https://github.com/clicktherapeutics/react-native-datepicker.git"
   },
   "keywords": [
     "react-native",
@@ -21,10 +21,11 @@
   "author": "xgfe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xgfe/react-native-datepicker/issues"
+    "url": "https://github.com/clicktherapeutics/react-native-datepicker/issues"
   },
-  "homepage": "https://github.com/xgfe/react-native-datepicker#readme",
+  "homepage": "https://github.com/clicktherapeutics/react-native-datepicker#readme",
   "dependencies": {
+    "@react-native-community/datetimepicker": "^3.0.4",
     "moment": "^2.22.0"
   },
   "devDependencies": {
