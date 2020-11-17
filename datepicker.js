@@ -371,34 +371,12 @@ class DatePicker extends Component {
                 </TouchableComponent>
               </TouchableComponent>
             </View>
-          </Modal>}
-          {this.state.isPicker ? this.renderPicker(mode) : null}
+          </Modal>}          
+          {(mode === 'time' && this.state.isPicker)?<DateTimePicker mode="time" value={this.state.date} onChange={this.onTimePicked}/>:null}
+          {(mode === 'date' && this.state.isPicker)?<DateTimePicker mode="date" minimumDate={minDate && this.getDate(minDate)} maximumDate={maxDate && this.getDate(maxDate)} value={this.state.date} onChange={this.onDatePicked}/>:null}
           </View>
       </TouchableComponent>
     );
-  }
-
-  renderPicker(mode){
-    const {minDate, maxDate} = this.props;
-    if (mode === 'time') {
-      return (
-        <DateTimePicker mode="time"
-                        value={this.state.date}
-                        onChange={this.onTimePicked}/>
-      );
-    }
-    else if (mode === 'date') {
-      return (
-        <DateTimePicker mode="date"
-                        minimumDate={minDate && this.getDate(minDate)}
-                        maximumDate={maxDate && this.getDate(maxDate)}
-                        value={this.state.date}
-                        onChange={this.onDatePicked}/>
-      );
-    }
-    else {
-      return null;
-    }
   }
 }
 

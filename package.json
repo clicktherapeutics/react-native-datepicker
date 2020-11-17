@@ -1,14 +1,16 @@
 {
   "name": "@click-therapeutics-org/react-native-datepicker",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "React Native DatePicker component for both Android and iOS, useing DatePickerAndroid, TimePickerAndroid and DatePickerIOS",
-  "main": "datepicker.js",
+  "main": "dist/datepicker.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest --coverage",
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "npx babel ./datepicker.js ./style.js --out-dir dist --copy-files",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,11 @@
   },
   "homepage": "https://github.com/clicktherapeutics/react-native-datepicker#readme",
   "dependencies": {
-    "@react-native-community/datetimepicker": "^3.0.4",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@react-native-community/datetimepicker": "^2.4.0",
+    "metro-react-native-babel-preset": "^0.64.0",
     "moment": "^2.22.0"
   },
   "devDependencies": {
