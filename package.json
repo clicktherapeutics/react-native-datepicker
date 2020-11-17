@@ -9,7 +9,7 @@
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "eslint .",
-    "build": "npx babel ./datepicker.js ./style.js --out-dir dist --copy-files",
+    "build": "npx babel ./datepicker.js ./style.js --out-dir dist --copy-files && cp ./*.png dist",
     "prepublishOnly": "npm run build"
   },
   "repository": {
